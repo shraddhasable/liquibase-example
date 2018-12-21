@@ -36,18 +36,22 @@
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
-                <version>2.0.1</version>
-                <executions>
-                    <execution>
-                        <phase>process-resources</phase>
-                        <configuration>
-                            <propertyFile>src/main/dbschema/liquibase.properties</propertyFile>
-                        </configuration>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <version>3.5.0</version>
+                <configuration>
+                                <propertyfile>src/main/dbschema/liquibase.properties</propertyfile>
+                                <changeLogFile>src/main/dbschema/master.xml</changeLogFile>
+                                <driver>org.postgresql.Driver</driver>
+                                <url>jdbc:postgresql://localhost:5432/denmark</url>
+                                <liquibase.username>roger</liquibase.username>
+                                <liquibase.password>roger</liquibase.password>
+                </configuration>
+                         <executions>
+                                 <execution>
+                                        <goals>
+                                          <goal>update</goal>
+                                        </goals>
+                                </execution>
+                        </executions>
             </plugin>
         </plugins>
     </build>
